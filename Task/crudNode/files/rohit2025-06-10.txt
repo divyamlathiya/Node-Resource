@@ -1,0 +1,13 @@
+{
+  "id": "1898",
+  "name": "Rohit",
+  "email": "rohit@gmail.com",
+  "password": "Old@12",
+  "address": {
+    "street": "Main street",
+    "city": "Juhhu Beach",
+    "state": "Mumbai",
+    "country": "India"
+  },
+  "phone": "+91 63514 45127"
+}

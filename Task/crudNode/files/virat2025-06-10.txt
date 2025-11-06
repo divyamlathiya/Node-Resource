@@ -1,0 +1,13 @@
+{
+  "id": "3274",
+  "name": "Virat",
+  "email": "virat@gmail.com",
+  "password": "New@12",
+  "address": {
+    "street": "Main street",
+    "city": "Noida",
+    "state": "Delhi",
+    "country": "India"
+  },
+  "phone": "+91 99774 55412"
+}

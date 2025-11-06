@@ -1,0 +1,13 @@
+{
+  "id": "8894",
+  "name": "Divyam",
+  "email": "divyam@gmail.com",
+  "password": "123456",
+  "address": {
+    "street": "Main street",
+    "city": "Surat",
+    "state": "Gujarat",
+    "country": "India"
+  },
+  "phone": "+91 94452 57413"
+}
