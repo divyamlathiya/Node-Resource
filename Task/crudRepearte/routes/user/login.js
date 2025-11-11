@@ -8,7 +8,7 @@ router.post('/', async(req, res, next) => {
   try {
     const { email, password } = req.body;
 
-    const foundUser = await user.findOne({ email });
+    const foundUser = await user.findOne({ email:email }).lean();
     if (!foundUser) {
       return response.error(res, 'Invalid credantials');
     }
@@ -25,3 +25,4 @@ router.post('/', async(req, res, next) => {
 });
 
 module.exports = router;
+
