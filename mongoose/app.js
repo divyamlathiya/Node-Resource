@@ -3,8 +3,10 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var cors = require('cors');
 var logger = require('morgan');
-var mongo = require('mongoose');
+var mongoose = require('mongoose');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -22,11 +24,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongo.connect(process.env.MONGO_URI);
-
-mongo.connection.once('connected', () => {
+mongoose.connect(process.env.MONGO_URI);
+mongoose.connection.once('open', () => {
   console.log('MongoDB connected successfully');
-}).on('error', err => {
+}).on('Error', err => {
   console.log("Error:", err);
 });
 
