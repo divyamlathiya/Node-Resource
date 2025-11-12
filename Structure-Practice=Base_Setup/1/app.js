@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-const dotEnv = require('dotenv').config();
+require('dotenv').config();
 const mongoose  = require('mongoose');
 const { log } = require('console');
 
@@ -32,9 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/users', usersRouter);
 
 mongoose.connect(process.env.MONGO_URI);
-mongoose.connection.once('open', () => {
-  console.log("Mongo Connected Successfully!");
-}).on('error', (err) => {
+mongoose.connection.once('Open', () => {
+  console.log("MongoDB Connected Successfully!");
+}).on('Error', (err) => {
   console.log("Error:", err);
 });
 
