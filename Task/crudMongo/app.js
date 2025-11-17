@@ -11,14 +11,7 @@ const mongoose = require('mongoose');
 // var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 
-const adminRoutes = [
-  {path:"/userList", routePath:"/userList"},
-];
 
-const userRoutes = [
-  {path:"/login", routePath:"/login"},
-  {path:"/register", routePath:"/register"},
-];
 
 var app = express();
 
