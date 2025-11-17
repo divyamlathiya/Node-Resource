@@ -33,6 +33,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 
+mongoose.connect(process.env.MONGO_URI);
+mongoose.connection.once('open', () => {
+  console.log("MongoDB Connected Successfully");
+}).on("error", (err) => {
+  console.log("Error:",err);
+});
+
 
 Route.forEach((x) => {
   app.use(x.path, require("./routes/admin" + x.routePath));
