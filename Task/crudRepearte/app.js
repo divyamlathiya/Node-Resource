@@ -45,7 +45,7 @@ mongoose.connection.once('open', () => {
 });
 
 adminRoutes.forEach((x) => {
-  app.use("/admin" + x.path, require("./routes/admin" + x.routePath));
+  
 });
 
 userRoutes.forEach((x) => {
