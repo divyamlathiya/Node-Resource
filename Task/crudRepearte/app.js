@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
-const dotEnv = require('dotenv').config();
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 // var indexRouter = require('./routes/index');
