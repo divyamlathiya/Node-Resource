@@ -13,15 +13,9 @@ async function userLogin(req, res, next) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phoneRegex = /^[+]{1}(?:[0-9\-\\(\\)\\/.]\s?){10,12}[0-9]{1}$/;
 
-  if ((!email && !phone)) {
-    response.onError(res, 'Provide either email or phone');
-  } else {
-    if (email && !emailRegex.test(email)) {
-      response.onError(res, 'Email is invalid');
-    } else {
-      if (phone && !phoneRegex.test(phone)) {
-        response.onError(res, 'Phone is invalid');
-      } else {
+  if ((email || phone)) {
+    if (!email || (emailRegex.test(email))) {
+      if (!phone || (phoneRegex.test(phone))) {
         let foundUser = await userRegister.findOne({ $or: [{ email: email }, { phone: phone }] }).lean();
         if (foundUser) {
           const decryptedPassword = await decPass(foundUser.password);
@@ -38,8 +32,14 @@ async function userLogin(req, res, next) {
         } else {
           response.onError(res, 'User not found');
         }
+      } else {
+        response.onError(res, 'Phone is invalid');
       }
+    } else {
+      response.onError(res, 'Email is invalid');
     }
+  } else {
+    response.onError(res, 'Provide either email or phone');
   }
 };
 
