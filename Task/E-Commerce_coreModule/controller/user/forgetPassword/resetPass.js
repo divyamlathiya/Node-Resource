@@ -17,7 +17,7 @@ async function reqForResetPass(req, res, next) {
                 if (newPassword == confirmPassword) {
                     const stored = resetTokens[email];
                     if (stored) {
-                        if (stored.token == token || stored.expiresAt < Date.now()) {
+                        if (stored.token == token && stored.expiresAt < Date.now()) {
                             const foundUser = await userRegister.findOne({ email: email });
                             if (foundUser) {
                                 const encryptedPassword = await encPass(newPassword);
@@ -54,3 +54,4 @@ async function reqForResetPass(req, res, next) {
 };
 
 module.exports = reqForResetPass;
+
