@@ -34,7 +34,11 @@ mongoose.connection.once('open', () => {
 
 userRoute = [
   { path: '/login', routePath: '/login' },
-  { path: '/register', routePath: '/register' }
+  { path: '/register', routePath: '/register' },
+  { path: '/changePass', routePath: '/changePass' },
+  { path: '/reqForResetPass', routePath: '/reqForResetPass' },
+  { path: '/resetPass', routePath: '/resetPass' },
+  { path: '/updateProfile', routePath: '/updateProfile' }
 ];
 
 productRoute = [
